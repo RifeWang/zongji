@@ -6,7 +6,7 @@
 * Requires Node.js v4+
 
   ```bash
-  $ npm install zongji
+  $ npm install zongji2
   ```
 
 ## Quick Start
@@ -43,6 +43,6 @@ binlog.on(result => {
 }
 ```
 
-For a complete implementation see [zongji]('https://github.com/nevill/zongji')...
+For a complete implementation see ['https://github.com/nevill/zongji']('https://github.com/nevill/zongji')...
 
 
