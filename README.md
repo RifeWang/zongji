@@ -1,5 +1,5 @@
 
-# Base on [zongji]('https://github.com/nevill/zongji), wrap for result
+# Base on [zongji]('https://github.com/nevill/zongji'), wrap for result
 
 ## Quick Start
 
