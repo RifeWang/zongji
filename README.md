@@ -1,5 +1,5 @@
 
-# Base on [zongji]('https://github.com/nevill/zongji'), wrap for result
+# Base on [zongji](https://github.com/nevill/zongji), wrap for result
 
 ## Installation
 
@@ -43,6 +43,6 @@ binlog.on(result => {
 }
 ```
 
-For a complete implementation see ['https://github.com/nevill/zongji']('https://github.com/nevill/zongji')...
+For a complete implementation see [zongji](https://github.com/nevill/zongji) ...
 
 
