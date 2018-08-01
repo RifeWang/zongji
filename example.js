@@ -1,23 +1,18 @@
-// Client code
-var ZongJi = require('./');
+const Listener = require('./index');
 
-var zongji = new ZongJi({
-  host     : 'localhost',
-  user     : 'zongji',
-  password : 'zongji',
+const binlog = new Listener({
+  host: 'localhost',
+  user: 'user',
+  password: 'password',
   // debug: true
+}, {
+  database: 'database',    // listening for which one database
+  table: ['table_1', 'table_2'],   // listening for tables
+  action: ['DeleteRows', 'WriteRows', 'UpdateRows']   // listening for actions
 });
 
-zongji.on('binlog', function(evt) {
-  evt.dump();
+
+binlog.on(event => {
+  console.log(event);
 });
 
-zongji.start({
-  includeEvents: ['tablemap', 'writerows', 'updaterows', 'deleterows']
-});
-
-process.on('SIGINT', function() {
-  console.log('Got SIGINT.');
-  zongji.stop();
-  process.exit();
-});
