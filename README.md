@@ -1,10 +1,18 @@
 
 # Base on [zongji]('https://github.com/nevill/zongji'), wrap for result
 
+## Installation
+
+* Requires Node.js v4+
+
+  ```bash
+  $ npm install zongji
+  ```
+
 ## Quick Start
 
 ```javascript
-const Listener = require('./index');
+const Listener = require('zongji2');
 
 const binlog = new Listener({
   host: 'localhost',    // MySQL Connection Settings 
@@ -35,6 +43,6 @@ binlog.on(result => {
 }
 ```
 
-For a complete implementation see [`example.js`](example.js)...
+For a complete implementation see [zongji]('https://github.com/nevill/zongji')...
 
 
