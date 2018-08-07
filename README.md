@@ -18,22 +18,30 @@ const binlog = new Listener({
   host: 'localhost',    // MySQL Connection Settings 
   user: 'user',
   password: 'password',
-}, {
-  database: 'database',    // listening for which one database
-  table: ['table_1', 'table_2'],   // listening for tables
-  action: ['DeleteRows', 'WriteRows', 'UpdateRows']   // listening for actions
 });
 
-
 binlog.on(result => {
-  console.log(result);   // return an object that includes action, database, table, rows 
+  console.log(result);    
+  // get result and then do anything you want
+});
+
+binlog.start({
+  serverId: 1,
+  startAtEnd: true,
+  includeEvents: ['rotate', 'tablemap', 'writerows', 'updaterows', 'deleterows'],  
+  includeSchema: {
+    'database': ['table_1', 'table_2'],  
+  }
 });
 ```
 
 
 ### the result like below: 
+You can retry through binlogName and binlogNextPos if something error.
 ```
 {
+  binlogName: 'mysql-bin.000004',  
+  binlogNextPos: 5670,
   action: 'WriteRows',
   database: 'database',
   table: 'table_1',

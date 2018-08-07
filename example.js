@@ -1,18 +1,21 @@
 const Listener = require('./index');
 
 const binlog = new Listener({
-  host: 'localhost',
+  host: 'localhost',    // MySQL Connection Settings 
   user: 'user',
   password: 'password',
   // debug: true
-}, {
-  database: 'database',    // listening for which one database
-  table: ['table_1', 'table_2'],   // listening for tables
-  action: ['DeleteRows', 'WriteRows', 'UpdateRows']   // listening for actions
 });
-
 
 binlog.on(event => {
   console.log(event);
 });
 
+binlog.start({
+  serverId: 1,
+  startAtEnd: true,
+  includeEvents: ['rotate', 'tablemap', 'writerows', 'updaterows', 'deleterows'],  
+  includeSchema: {
+    'database': ['table_1', 'table_2'],  
+  }
+});
